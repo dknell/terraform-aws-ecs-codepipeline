@@ -1,5 +1,5 @@
 module "codepipeline_label" {
-  source     = "git::https://github.com/cloudposse/terraform-null-label.git?ref=tags/0.21.0"
+  source     = "git::https://github.com/cloudposse/terraform-null-label.git?ref=tags/0.22.0"
   attributes = compact(concat(var.attributes, ["codepipeline"]))
   context    = module.this.context
 }
@@ -13,7 +13,7 @@ resource "aws_s3_bucket" "default" {
 }
 
 module "codepipeline_assume_role_label" {
-  source     = "git::https://github.com/cloudposse/terraform-null-label.git?ref=tags/0.21.0"
+  source     = "git::https://github.com/cloudposse/terraform-null-label.git?ref=tags/0.22.0"
   context    = module.this.context
   attributes = compact(concat(var.attributes, ["codepipeline", "assume"]))
 }
@@ -83,7 +83,7 @@ resource "aws_iam_role_policy_attachment" "s3" {
 }
 
 module "codepipeline_s3_policy_label" {
-  source     = "git::https://github.com/cloudposse/terraform-null-label.git?ref=tags/0.21.0"
+  source     = "git::https://github.com/cloudposse/terraform-null-label.git?ref=tags/0.22.0"
   attributes = compact(concat(var.attributes, ["codepipeline", "s3"]))
   context    = module.this.context
 }
@@ -123,7 +123,7 @@ resource "aws_iam_role_policy_attachment" "codebuild" {
 }
 
 module "codebuild_label" {
-  source     = "git::https://github.com/cloudposse/terraform-null-label.git?ref=tags/0.21.0"
+  source     = "git::https://github.com/cloudposse/terraform-null-label.git?ref=tags/0.22.0"
   attributes = compact(concat(var.attributes, ["codebuild"]))
   context    = module.this.context
 }
@@ -155,7 +155,7 @@ resource "aws_iam_role_policy_attachment" "codestar" {
 }
 
 module "codestar_label" {
-  source     = "git::https://github.com/cloudposse/terraform-null-label.git?ref=tags/0.17.0"
+  source     = "git::https://github.com/cloudposse/terraform-null-label.git?ref=tags/0.22.0"
   enabled    = module.this.enabled && var.codestar_connection_arn != ""
   attributes = compact(concat(var.attributes, ["codestar"]))
   context    = module.this.context
@@ -197,7 +197,7 @@ data "aws_region" "default" {
 }
 
 module "codebuild" {
-  source                = "git::https://github.com/cloudposse/terraform-aws-codebuild.git?ref=tags/0.25.0"
+  source                = "git::https://github.com/cloudposse/terraform-aws-codebuild.git?ref=tags/0.26.0"
   enabled               = module.this.enabled
   namespace             = module.this.namespace
   name                  = module.this.name
